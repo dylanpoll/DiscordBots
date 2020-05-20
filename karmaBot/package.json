@@ -1,0 +1,19 @@
+{
+  "name": "karma-bot",
+  "version": "1.0.0",
+  "description": "reputation system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dylan Poll",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.6.4",
+    "express": "^4.17.1",
+    "mailparser": "^2.7.7",
+    "nodemailer": "^6.4.6",
+    "nodemon": "^2.0.3",
+    "request": "^2.88.2"
+  }
+}
