@@ -125,6 +125,7 @@
                                 return content;
                            }catch{console.log("failed in profile");}
                         }
+})//end of main body
 //----------------------
 //bot token
 //----------------------
