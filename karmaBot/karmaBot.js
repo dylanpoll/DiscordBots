@@ -109,18 +109,22 @@ bot.on('message', message=>{
                             await getskills(code).then(content => skills = content);skills = skills.replace(/"/g, "");
                             await getStreak(code).then(content => streak = content);streak = streak.replace(/"/g, "");
                             const profileEmbed = {//profile card
-                                "title": name+"s profile :",
-                                "color": 9202888,
-                                "footer":{
-                                "text": " still being built"
-                                },
-                                "fields": [ 
-                                {"name": "Level: ","value": level},
-                                {"name": "Role: ","value": role},
-                                {"name": "Skills: ","value": skills},
-                                {"name": "Karma: ","value": karma},
-                                {"name": "Streak: ","value": streak}
-                                            ]};content = profileEmbed; return content;}catch{console.log("failed in profile");}}
+                                    "title": name+"s profile :",
+                                    "color": 9202888,
+                                    "footer":{
+                                    "text": " still being built"
+                                    },
+                                    "fields": [ 
+                                    {"name": "Level: ","value": level},
+                                    {"name": "Role: ","value": role},
+                                    {"name": "Skills: ","value": skills},
+                                    {"name": "Karma: ","value": karma},
+                                    {"name": "Streak: ","value": streak}
+                                    ]};
+                                content = profileEmbed; 
+                                return content;
+                           }catch{console.log("failed in profile");}
+                        }
 //----------------------
 //bot token
 //----------------------
