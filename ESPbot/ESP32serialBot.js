@@ -24,11 +24,7 @@
         "name": "Made by Dylan Poll"
         },
         "fields": [ 
-        {"name": "!led : ","value": " on, off, red, white, blue, green."},
-        {"name": "!delete (number) : ","value": " deletes comments including and above."},
-        {"name": "!profile : ","value": " prints your profile."},
-        {"name": "!viewProfile @mentionedUser : ","value": " shows you the mentioned users profile."},
-        {"name": "!add.karma (number) @mentionedUser : ","value": " adds karma to the user."}
+        {"name": "!led : ","value": " on, off, red, white, blue, green."}
         ]};
 //----------------------
 //Data: objects/static
