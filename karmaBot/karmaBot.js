@@ -12,31 +12,32 @@
 //----------------------
 //Data: objects/static
 //----------------------
-        const espLink = process.env.espLINK;
-        const link = process.env.url;
+    const espLink = process.env.espLINK;
+    const link = process.env.url;
 //----------------------
 //bot startup
 //----------------------
-bot.on('ready', () => {console.log('Karma system is armed and dangerous...');});
-bot.on('message', message=>{ 
-//----------------------
-//user command tree   
-//----------------------
-                let command = message.content.substring(prefix.length).split(" "); //tells the bot to search for the prefix, and than a space, and the contents after the sace will be command
-                    if(message.author.bot) return; // tell the bot to ignore comments made by bots.
-        switch(command[0]){ case 'help'         :   message.channel.send({embed: helpembed});  //prints help
-                                break;
-                            case 'delete'       :   try{if(!command[1]) return message.reply('please put in the amount of messages you want to delete...') //this states if there isn't a number given than ignore the command.
-                                                        message.channel.bulkDelete(command[1]).then(console.log("successful delete."));}catch{console.log("error deleting..")}
-                                break;
-                            case 'karma'        :   try{let code = message.author.id; getUserKarma(code).then(content =>message.channel.send(content)); }catch{console.log("profile select err");}
-                                break;
-                            case 'profile'      :   try{let code = message.author.id; theProfile(code).then(content => message.channel.send({embed: content}));}catch{console.log("my profile select err");}
-                                break;
-                            case 'viewProfile'  :   try{let members = message.mentions.users.first(); let code = members.id; theProfile(code).then(content => message.channel.send({embed: content}));}catch{console.log("view profile select err");}
-                                break;
-                            case 'add.karma'    :   try{let member = message.mentions.users.first();let code = member.id;let number = (command[1]);updateKarma(code,number).then(content => message.channel.send(content)); }catch{message.channel.send("failed adding karma...");}
-                                break;}
+    bot.on('ready', () => {console.log('Karma system is armed and dangerous...');});
+    bot.on('message', message=>{ 
+    //----------------------
+    //user command tree   
+    //----------------------
+        let command = message.content.substring(prefix.length).split(" ");          //tells the bot to search for the prefix, and than a space, and the contents after the sace will be command
+            if(message.author.bot) return; // tell the bot to ignore comments made by bots.
+            switch(command[0]){ case 'help'         :   message.channel.send({embed: helpembed});  //prints help
+                                    break;
+                                case 'delete'       :   try{if(!command[1]) return message.reply('please put in the amount of messages you want to delete...') //this states if there isn't a number given than ignore the command.
+                                                            message.channel.bulkDelete(command[1]).then(console.log("successful delete."));}catch{console.log("error deleting..")}
+                                    break;
+                                case 'karma'        :   try{let code = message.author.id; getUserKarma(code).then(content =>message.channel.send(content)); }catch{console.log("profile select err");}
+                                    break;
+                                case 'profile'      :   try{let code = message.author.id; theProfile(code).then(content => message.channel.send({embed: content}));}catch{console.log("my profile select err");}
+                                    break;
+                                case 'viewProfile'  :   try{let members = message.mentions.users.first(); let code = members.id; theProfile(code).then(content => message.channel.send({embed: content}));}catch{console.log("view profile select err");}
+                                    break;
+                                case 'add.karma'    :   try{let member = message.mentions.users.first();let code = member.id;let number = (command[1]);updateKarma(code,number).then(content => message.channel.send(content)); }catch{message.channel.send("failed adding karma...");}
+                                    break;}
+   })//end of main body
 //----------------------
 //ASYNC GET USER DATA
 //----------------------
@@ -62,11 +63,6 @@ bot.on('message', message=>{
                 try{let url = link+'/users/findUserDataByDiscordID/'+code+'/_id';let response = await fetch(url, { method: 'GET'});let content = response.text();
                                     return content;}catch{console.log("failed in get _id");}}
 //----------------------
-//ASYNC DATA VALIDATION
-//----------------------
-            async function filterInt(number) {if (/^[-+]?(\d+|Infinity)$/.test(number)) {return Number(number)} else {return "";}}
-})//end of main body
-//----------------------
 //ASYNC CHANGE USER DATA
 //----------------------
             async function patchKarma(code,patchIt){
@@ -79,6 +75,10 @@ bot.on('message', message=>{
                         let patchIt = await filterInt(number);
                         await patchKarma(code,patchIt).then(console.log("changed karma"));content = (name+" now has : "+patchIt+" karma points!");
                                         return content;}catch{message.channel.send("Failed adding karma...");}}
+//----------------------
+//ASYNC DATA VALIDATION
+//----------------------
+            async function filterInt(number) {if (/^[-+]?(\d+|Infinity)$/.test(number)) {return Number(number)} else {return "";}}
 //----------------------
 //embedds
 //----------------------
