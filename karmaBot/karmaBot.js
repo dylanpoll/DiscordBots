@@ -10,24 +10,6 @@
 //----------------------
     const prefix = '!';
 //----------------------
-//embedds
-//----------------------
-    const helpembed = { //the user help menu
-        "title": "Karma Bot User Info :",
-        "color": 9202888,
-        "footer": {
-        "text": "if you need help with using these commands, please ask a team lead!"
-        },
-        "author": {
-        "name": "Made by Dylan Poll"
-        },
-        "fields": [ 
-        {"name": "!delete (number) : ","value": " deletes comments including and above."},
-        {"name": "!profile : ","value": " prints your profile."},
-        {"name": "!viewProfile @mentionedUser : ","value": " shows you the mentioned users profile."},
-        {"name": "!add.karma (number) @mentionedUser : ","value": " adds karma to the user."}
-        ]};
-//----------------------
 //Data: objects/static
 //----------------------
         const espLink = process.env.espLINK;
@@ -93,29 +75,47 @@ bot.on('message', message=>{
                         await patchKarma(code,patchIt).then(console.log("changed karma"));content = (name+" now has : "+patchIt+" karma points!");
                                         return content;}catch{message.channel.send("Failed adding karma...");}}
 //----------------------
-//ASYNC profile
+//embedds
 //----------------------
-            async function theProfile(code){
-                try{let karma;let role;let skills;let name;let content; let streak;let level;
-                    await getname(code).then(content => name = content);name = name.replace(/"/g, "");
-                    await getUserKarma(code).then(content => karma = content);
-                    await getLevel(code).then(content => level = content);level = level.replace(/"/g, "");
-                    await getroles(code).then(content => role = content);role = role.replace(/"/g, "");
-                    await getskills(code).then(content => skills = content);skills = skills.replace(/"/g, "");
-                    await getStreak(code).then(content => streak = content);streak = streak.replace(/"/g, "");
-                    const profileEmbed = {//profile card
-                        "title": name+"s profile :",
-                        "color": 9202888,
-                        "footer":{
-                        "text": " still being built"
-                        },
-                        "fields": [ 
-                        {"name": "Level: ","value": level},
-                        {"name": "Role: ","value": role},
-                        {"name": "Skills: ","value": skills},
-                        {"name": "Karma: ","value": karma},
-                        {"name": "Streak: ","value": streak}
-                                    ]};content = profileEmbed; return content;}catch{console.log("failed in profile");}}
+    const helpembed = { //the user help menu
+        "title": "Karma Bot User Info :",
+        "color": 9202888,
+        "footer": {
+        "text": "if you need help with using these commands, please ask a team lead!"
+        },
+        "author": {
+        "name": "Made by Dylan Poll"
+        },
+        "fields": [ 
+        {"name": "!delete (number) : ","value": " deletes comments including and above."},
+        {"name": "!profile : ","value": " prints your profile."},
+        {"name": "!viewProfile @mentionedUser : ","value": " shows you the mentioned users profile."},
+        {"name": "!add.karma (number) @mentionedUser : ","value": " adds karma to the user."}
+        ]};
+        //----------------------
+        //ASYNC profile
+        //----------------------
+                    async function theProfile(code){
+                        try{let karma;let role;let skills;let name;let content; let streak;let level;
+                            await getname(code).then(content => name = content);name = name.replace(/"/g, "");
+                            await getUserKarma(code).then(content => karma = content);
+                            await getLevel(code).then(content => level = content);level = level.replace(/"/g, "");
+                            await getroles(code).then(content => role = content);role = role.replace(/"/g, "");
+                            await getskills(code).then(content => skills = content);skills = skills.replace(/"/g, "");
+                            await getStreak(code).then(content => streak = content);streak = streak.replace(/"/g, "");
+                            const profileEmbed = {//profile card
+                                "title": name+"s profile :",
+                                "color": 9202888,
+                                "footer":{
+                                "text": " still being built"
+                                },
+                                "fields": [ 
+                                {"name": "Level: ","value": level},
+                                {"name": "Role: ","value": role},
+                                {"name": "Skills: ","value": skills},
+                                {"name": "Karma: ","value": karma},
+                                {"name": "Streak: ","value": streak}
+                                            ]};content = profileEmbed; return content;}catch{console.log("failed in profile");}}
 //----------------------
 //ASYNC DATA VALIDATION
 //----------------------
