@@ -99,7 +99,7 @@
                         return content;
                     } catch{ console.log("failed in profile"); }
                 }
-})//end of main body!!!!
+}) // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!end of main body!!!!
 
         //----------------------
         //embedds (MUST BE PLACED OUTSIDE BOT FUNCTION)
