@@ -62,6 +62,11 @@ bot.on('message', message=>{
                 try{let url = link+'/users/findUserDataByDiscordID/'+code+'/_id';let response = await fetch(url, { method: 'GET'});let content = response.text();
                                     return content;}catch{console.log("failed in get _id");}}
 //----------------------
+//ASYNC DATA VALIDATION
+//----------------------
+            async function filterInt(number) {if (/^[-+]?(\d+|Infinity)$/.test(number)) {return Number(number)} else {return "";}}
+})//end of main body
+//----------------------
 //ASYNC CHANGE USER DATA
 //----------------------
             async function patchKarma(code,patchIt){
@@ -116,11 +121,6 @@ bot.on('message', message=>{
                                 {"name": "Karma: ","value": karma},
                                 {"name": "Streak: ","value": streak}
                                             ]};content = profileEmbed; return content;}catch{console.log("failed in profile");}}
-//----------------------
-//ASYNC DATA VALIDATION
-//----------------------
-            async function filterInt(number) {if (/^[-+]?(\d+|Infinity)$/.test(number)) {return Number(number)} else {return "";}}
-})//end of main body
 //----------------------
 //bot token
 //----------------------
