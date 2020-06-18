@@ -1,7 +1,7 @@
 # DiscordBots
 my Discord Bots<br>
 NOTE:
-these files use a .env with the content <br>
+these files use a .env file with the following content to store sensitive data <br>
 url=<br>
 espLINK=<br>
 botToken=<br>
