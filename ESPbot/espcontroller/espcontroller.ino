@@ -77,7 +77,7 @@ void loop(){
                           Serial.print(color);//sends the single charactor color code viea serial to arduino
                           }
 
-                //for this application a page is not needed, it is only used to grab url querries.
+                //for this application a page is not needed, it is only used to grab url encoded querries.. but this much is still needed to accomplish that.
                       client.println("<!DOCTYPE html><html>");
                       client.println("<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
                       client.println("<link rel=\"icon\" href=\"data:,\">");
