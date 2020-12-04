@@ -15,10 +15,10 @@
 //embedds
 //----------------------
     const helpembed = { //the user help menu
-        "title": "Karma Bot User Info :",
+        "title": "Bot Info :",
         "color": 9202888,
         "footer": {
-        "text": "if you need help with using these commands, please ask a team lead!"
+        "text": "This is the command menu."
         },
         "author": {
         "name": "Made by Dylan Poll"
